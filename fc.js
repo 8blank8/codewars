@@ -152,6 +152,42 @@ function convertCtoF(celsius) {
     return newArr
   }
 
-  chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2)
+  // chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2)
 
+
+
+  // function Bird(name) {
+  //   this.name = name;
+  //   this.numLegs = 2;
+  // }
   
+  // let canary = new Bird("Tweety");
+  // let ownProps = [];
+
+  // for(key in canary){
+  //   if(key in canary){
+  //     ownProps.push(key)
+  //   }
+  // }
+
+ 
+  function Dog(name) {
+    this.name = name;
+  }
+  
+  Dog.prototype.numLegs = 4;
+  
+  let beagle = new Dog("Snoopy");
+  
+  let ownProps = [];
+  let prototypeProps = [];
+  
+  for(let key in beagle){
+    if(beagle.hasOwnProperty(key)){
+      ownProps.push(key)
+    } else {
+      prototypeProps.push(key)
+    }
+  }
+
+  // console.log(prototypeProps)
