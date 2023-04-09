@@ -77,3 +77,81 @@ function convertCtoF(celsius) {
   }
   
   findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; });
+
+
+  function booWho(bool) {
+    return typeof bool === 'boolean' ? true : false;
+  }
+  
+  // booWho(null);
+
+
+  function titleCase(str) {
+    return str.split(' ').map(item=>{
+      item.toLowerCase()
+      return item[0].toUpperCase() + item.split('').splice(1, item.length).join('').toLowerCase()
+    }).join(' ')
+  }
+  
+  // titleCase("sHoRt AnD sToUt")
+
+
+  function frankenSplice(arr1, arr2, n) {
+
+    const res = [...arr2]
+    res.splice(n, 0, ...arr1)
+    return res;
+  }
+  
+  // frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+
+  function bouncer(arr) {
+    let newArr = []
+    arr.forEach(item => {
+      if(item) return newArr.push(item)
+    });
+    return newArr
+  }
+  
+  // bouncer([false, null, 0, NaN, undefined, ""])
+
+
+  function getIndexToIns(arr, num) {
+    const index = [...arr, num].sort((a, b)=> a-b).indexOf(num)
+    return index
+  }
+  
+  // getIndexToIns([40, 60], 50);
+
+
+  function mutation(arr) {
+    const str1 = arr[0].toLowerCase().split('')
+    const str2 = arr[1].toLowerCase().split('')
+    let res = true;
+    for(let i =0; i < str2.length; i++){
+      if(str1.indexOf(str2[i]) === -1) res = false
+    }
+    return res;
+  }
+  
+  // mutation(["hello", "he"]);
+
+  function chunkArrayInGroups(arr, size) {
+    let newArr = []
+    let index = 0
+    for(let i = 0; i < arr.length; i += size){
+      newArr.push([])
+      for(let k = 0; k < size; k++){
+        if(arr.indexOf(arr[index]) !== -1){
+          newArr[newArr.length -1].push(arr[index])
+        }
+        index++
+      }
+    }
+    return newArr
+  }
+
+  chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2)
+
+  
