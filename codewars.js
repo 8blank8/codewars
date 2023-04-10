@@ -553,7 +553,7 @@ function zero(mat) {
     return '/' + func
   }
 
-  nine(times(eight()))
+//   nine(times(eight()))
 
 
 
