@@ -415,3 +415,146 @@ function makeUpperCase(str) {
 
 // makeUpperCase("hello")
 
+
+
+
+function solution(str){
+    const arr = str.split('')
+
+    let res =[]
+
+    for(let i = 0; i <arr.length-1; i++){
+        // console.log(oneStr + ' ' + twoStr + ` ${i}`)
+        console.log(i)
+        if(i % 2 === 0) {
+            res.push(arr[i] + arr[i+1])
+        }else if(i === arr.length -2) {
+            res.push(`${arr[i+1]}_`)
+        } 
+       
+        
+        
+    }
+    return res
+}
+// solution("abcdefg")
+
+function pigIt(str){
+    const strArr = str.split(' ')
+    
+    return strArr.map(item=>{
+            if(item === '!' || item === '?') return item
+            return item.split('').splice(1, item.length -1).join('')+item[0]+'ay'
+        }).join(' ')
+  }
+
+//   pigIt('Pig latin is cool')
+
+var summation = function (num) {
+    let sum = 0
+    for(let i = 1; i <= num; i++){
+        sum+=i
+    }
+    return sum
+  }
+
+  const binaryArrayToNumber = arr => {
+    return parseInt(+arr.join(''), 2)
+  };
+
+//   binaryArrayToNumber([0,0,1,0])
+
+function abbrevName(name){
+    const arr = name.split(' ')
+    return `${arr[0][0].toUpperCase()}.${arr[1][0].toUpperCase()}`
+
+}
+
+// abbrevName("Sam Harris")
+
+
+function genPasswd(key, str, pwLen){
+    let arr = []
+    let k = key
+    let s = str.split('').reverse()
+    let num = 0
+    let index = key;
+    for(let i = 1; i <= pwLen; i++){
+        if(num % 2 === 0){
+            arr.push(k)
+            k++
+            if(k > 9){
+                k = 0
+            }
+            if(index === s.length){
+                index = 0
+            }
+            num++
+        }else if(num % 2 === 1){
+            arr.push(s[index])
+            num++
+            index++ 
+        }
+    }   
+    console.log(arr.join(''))
+    return arr.join('')
+  }
+// genPasswd(8, '0123456789#', 15)
+
+
+function zero(mat) {
+   return number(0, mat)
+  }
+  function one(mat) {
+    return number(1, mat)
+  }
+  function two(mat) {
+    return number(2, mat)
+  }
+  function three(mat) {
+    return number(3, mat)
+  }
+  function four(mat) {
+    return number(4, mat)
+  }
+  function five(mat) {
+    return number(5, mat)
+  }
+  function six(mat) {
+    return number(6, mat)
+  }
+  function seven(mat) {
+    return number(7, mat)
+  }
+  function eight(mat) {
+    return number(8, mat)
+  }
+  function nine(mat) {
+    return number(9, mat)
+  }
+
+  function number(n, mat){
+    if(mat == undefined){
+        return n
+    }
+    return Math.floor(eval(`${n}${mat}`))
+  }
+//   
+  function plus(func) {
+    return '+' + func
+  }
+  function minus(func) {
+    return '-' + func
+  }
+  function times(func) {
+    return '*' + func
+  }
+  function dividedBy(func) {
+    return '/' + func
+  }
+
+  nine(times(eight()))
+
+
+
+  
