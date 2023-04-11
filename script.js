@@ -380,4 +380,26 @@ var maze = [[1,1,1,1,1,1,1],
             [1,0,0,0,0,0,1],
             [1,2,1,0,1,0,1]]
 
-console.log(mazeRunner(maze,["N","N","N","N","N","E","E","E","E","E","W","W"]))
+// console.log(mazeRunner(maze,["N","N","N","N","N","E","E","E","E","E","W","W"]))
+
+function lengthOfRailway(sounds){
+    let speed = false
+    let arr = sounds.split('')    
+    let meters = 0
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === '呜' && arr[i+1] === '呜' && arr[i+2] === '呜'){
+            speed = !speed
+        }
+
+        if(arr[i] === '哐' && arr[i+1] === '当'){
+            if(speed){
+                meters += 20
+            } else{
+                meters += 10
+            }
+        }
+    }
+
+    return meters
+  }
+// console.log(lengthOfRailway("呜呜呜哐当哐当哐当哐当哐当呜呜呜哐当哐当哐当哐当哐当"))
