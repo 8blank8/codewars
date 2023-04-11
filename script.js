@@ -175,12 +175,7 @@ function isDivisible(n, x, y) {
   }
 
 
-  console.log(SubtractSum(365))
-
-
-
-
-
+//   console.log(SubtractSum(365))
 
 
 const obj = {
@@ -285,3 +280,104 @@ const obj = {
 99: 'apple',
 100: 'pineappl',
 }
+
+function sumMix(x){
+  let sum = 0
+  for(let i = 0; i < x.length; i++){
+    sum += +x[i]
+  }
+  return sum
+}
+
+// console.log(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7]))
+
+function maximizePoints(team1, team2) {
+   
+   let team1Sort = team1.sort((a, b)=> a-b)
+   let res = 0
+   for(let i = 0; i < team2.length; i++){
+    for(let k = 0; k < team1.length; k++){
+        if(team1Sort[k] > team2[i]){
+            
+            delete team2[i]
+            delete team1Sort[k]
+            res++
+        }
+    }
+   }
+   
+   return res
+
+  }
+
+//   console.log(maximizePoints([25, 7, 26, 48],[1, 36, 5, 33]))
+
+
+function tiaosheng(failedCount){
+    let second = 0
+    let num = 0
+    while(second < 60){
+        second++
+        num++
+        for(let i = 0; i < failedCount.length; i++){
+            if(num === failedCount[i]){
+                second += 3
+            }
+        }
+    }
+    return num
+}
+
+// console.log(tiaosheng([12, 23, 45]))
+
+
+function mazeRunner(maze, directions) {
+    let coord = []
+    let res
+    for(let i = 0; i < maze.length; i++){
+        for(let k = 0; k < maze[i].length; k++){
+            if(maze[i][k] === 2){
+                coord = [i, k]
+            }
+        }
+    }
+
+    for(let i = 0; i < directions.length; i++){
+        switch(directions[i]){
+            case 'N':
+                coord[0] -= 1
+                break
+            case 'E':
+                coord[1] += 1
+                break
+            case 'W':
+                coord[1] -= 1
+                break
+            case 'S':
+                coord[0] += 1
+        }
+
+        if(coord[0] < 0 || coord[0] > maze.length - 1 || coord[1] < 0 || coord[1] > maze[0].length - 1 || maze[coord[0]][coord[1]] == 1){
+            res = 'Dead'
+            break
+        }else if(maze[coord[0]][coord[1]] == 3){
+            res = 'Finish'
+            break
+        } else{
+            res = 'Lost'
+        }
+    }
+
+    return res
+  }
+
+
+var maze = [[1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,3],
+            [1,0,1,0,1,0,1],
+            [0,0,1,0,0,0,1],
+            [1,0,1,0,1,0,1],
+            [1,0,0,0,0,0,1],
+            [1,2,1,0,1,0,1]]
+
+console.log(mazeRunner(maze,["N","N","N","N","N","E","E","E","E","E","W","W"]))
