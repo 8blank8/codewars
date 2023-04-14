@@ -191,3 +191,176 @@ function convertCtoF(celsius) {
   }
 
   // console.log(prototypeProps)
+
+
+  function solution(number){
+    let sum = 0
+    for(let i = 1; i < number; i++){
+      if(i % 3 === 0 || i % 5 === 0) sum += i
+    }
+    return sum
+  }
+  // console.log(solution(10))
+
+  function findOdd(A) {
+    const obj ={}
+    let res
+    A.forEach(item => {
+      obj[item] = obj[item] + 1 || 1
+    })
+
+  for(let key in obj) {
+    if(obj[key] % 2 === 1) res = key
+  }
+    return +res;
+  }
+  // console.log(findOdd([1,2,2,3,3,3,4,3,3,3,2,2,1]))
+
+  function digitalRoot(n) {
+    if(n < 10){
+      return n
+    }else{
+       let sum = 0
+       String(n).split('').forEach(item=> sum += +item)
+       return digitalRoot(sum)
+    }
+  }
+
+  // console.log(digitalRoot(16))
+
+  function createPhoneNumber(numbers){
+    let phoneNumber = '('
+
+    numbers.forEach((item, i)=>{
+      switch(i){
+        case 2:
+          phoneNumber += `${item}) `
+          break
+        case 5:
+          phoneNumber += `${item}-`
+          break
+        default:
+          phoneNumber += `${item}`
+          break
+      }
+    })
+
+    return phoneNumber
+  }
+
+  // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+
+  var countBits = function(n) {
+   return n === 0 ? 0 : n.toString(2).match(/1/g).join('').length
+  };
+
+  // console.log(countBits(0))
+
+  function findOutlier(integers){
+    let odd =[]
+    let even=[]
+    for(let i = 0; i < integers.length; i++){
+      if(integers[i] % 2 === 0) {
+        odd.push(i)
+      }else{
+        even.push(i)
+      }
+    }
+
+    if(odd.length > even.length) {
+      return integers[even[0]]
+    }else{
+      return integers[odd[0]]
+    }
+  }
+
+  // console.log(findOutlier([2,6,8,10,3]))
+
+
+  function duplicateCount(text){
+    const arr = text.split('')
+    const count = {}
+    let res = 0
+
+    arr.forEach(item=>{
+      count[item.toLowerCase()] = count[item.toLowerCase()] + 1 || 1
+    })
+
+    for(let key in count){
+      if(count[key] > 1) res += 1
+    }
+
+    return res
+  }
+
+  // console.log(duplicateCount("Indivisibilities"))
+
+  function duplicateEncode(word){
+    const arr = word.toLowerCase().split('')
+    const count = {}
+    let res = ''
+    arr.forEach(item => count[item] = count[item] + 1 || 1)
+
+    for(let i = 0; i < arr.length; i++){
+        count[arr[i]] > 1 ? res += ')' : res += '('
+    }
+
+    return res
+}
+
+// console.log(duplicateEncode("recede"))
+
+
+function isValidWalk(walk) {
+  let minutes = 0
+  let ver = 0
+  let gor = 0
+
+  for(let i = 0; i < walk.length; i++){
+    minutes++
+    switch(walk[i]){
+      case 'n':
+        ver++
+        break
+      case 's':
+        ver--
+        break
+      case 'w':
+        gor++
+        break
+      case 'e':
+        gor--
+        break
+    }
+  }
+
+  if(minutes === 10 && ver === 0 && gor === 0){
+    return true
+  } else{
+    return false
+  }
+}
+
+// console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s']))
+
+
+function toCamelCase(str){
+  return str.replace(/_|-/g, ' ').split(' ').map((item, i) => {
+    if(i != 0){
+      return item[0].toUpperCase() + item.slice(1)
+    }else{
+      return item
+    }
+  }).join('')
+}
+
+// console.log(toCamelCase("the_stealth-warrior"))
+
+var uniqueInOrder=function(iterable){
+  let arr
+  typeof iterable === 'string' ? arr = iterable.split('') : arr = iterable
+  return arr.filter((item, i) =>item != iterable[i + 1])
+}
+
+console.log(uniqueInOrder('AAAABBBCCDAABBB'))
